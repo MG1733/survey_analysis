@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Survey Form</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded-4" style="max-width: 700px; margin: auto;">
+        
+        <h2 class="text-center mb-4 text-primary fw-bold">
+            SURVEY FORM
+        </h2>
+
+        <form action="{% url 'user' %}" method="POST">
+            {% csrf_token %}
+                <label class="form-label fw-semibold">
+                    Name
+                </label><br>
+                <input type="text" class="form-control" name="name"  required placeholder="Enter your name" pattern="[A-Za-z\s]+" maxlength="20"    title="Please enter letters only (max 20 characters)">
+                <label class="form-label fw-semibold">
+                    Age
+                </label><br>
+                <input type="number" class="form-control" name="age" min="18" max="60" required placeholder="Enter your age">
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    Native
+                </label>
+                <select class="form-select" name="Native" required>
+                    <option value="" selected disabled>Select your District</option>
+
+                    <option value="ariyalur">Ariyalur</option>
+                    <option value="chengalpattu">Chengalpattu</option>
+                    <option value="chennai">Chennai</option>
+                    <option value="coimbatore">Coimbatore</option>
+                    <option value="cuddalore">Cuddalore</option>
+                    <option value="dharmapuri">Dharmapuri</option>
+                    <option value="dindigul">Dindigul</option>
+                    <option value="erode">Erode</option>
+                    <option value="kallakurichi">Kallakurichi</option>
+                    <option value="kanchipuram">Kanchipuram</option>
+                    <option value="kanyakumari">Kanyakumari</option>
+                    <option value="karur">Karur</option>
+                    <option value="krishnagiri">Krishnagiri</option>
+                    <option value="madurai">Madurai</option>
+                    <option value="mayiladuthurai">Mayiladuthurai</option>
+                    <option value="nagapattinam">Nagapattinam</option>
+                    <option value="namakkal">Namakkal</option>
+                    <option value="nilgiris">The Nilgiris</option>
+                    <option value="perambalur">Perambalur</option>
+                    <option value="pudukkottai">Pudukkottai</option>
+                    <option value="ramanathapuram">Ramanathapuram</option>
+                    <option value="ranipet">Ranipet</option>
+                    <option value="salem">Salem</option>
+                    <option value="sivaganga">Sivaganga</option>
+                    <option value="tenkasi">Tenkasi</option>
+                    <option value="thanjavur">Thanjavur</option>
+                    <option value="theni">Theni</option>
+                    <option value="thoothukudi">Thoothukudi</option>
+                    <option value="tiruchirappalli">Tiruchirappalli</option>
+                    <option value="tirunelveli">Tirunelveli</option>
+                    <option value="tirupathur">Tirupathur</option>
+                    <option value="tiruppur">Tiruppur</option>
+                    <option value="tiruvallur">Tiruvallur</option>
+                    <option value="tiruvannamalai">Tiruvannamalai</option>
+                    <option value="tiruvarur">Tiruvarur</option>
+                    <option value="vellore">Vellore</option>
+                    <option value="viluppuram">Viluppuram</option>
+                    <option value="virudhunagar">Virudhunagar</option>
+                </select>
+            </div>
+             
+
+             <div class="mb-3">
+                <label class="form-label fw-semibold">
+                   Education
+                </label>
+                <select class="form-select" name="degree" required>
+                    <option value="" selected disabled>Choose your courses</option>
+                    <option value="Others">Others</option>
+                    <option value="BE - Computer Science Engineering">BE - Computer Science Engineering</option>
+                    <option value="BE - Information Technology">BE - Information Technology</option>
+                    <option value="BE - Artificial Intelligence and Data Science">BE - Artificial Intelligence & Data Science</option>
+                    <option value="BE - Electronics and Communication Engineering">BE - Electronics and Communication Engineering</option>
+                    <option value="BE - Electrical and Electronics Engineering">BE - Electrical and Electronics Engineering</option>
+                    <option value="BE - Mechanical Engineering">BE - Mechanical Engineering</option>
+                    <option value="BE - Civil Engineering">BE - Civil Engineering</option>
+                    <option value="BE - Mechatronics Engineering">BE - Mechatronics Engineering</option>
+                    <option value="BE - Biomedical Engineering">BE - Biomedical Engineering</option>
+                    <option value="BE - Aeronautical Engineering">BE - Aeronautical Engineering</option>
+                    <option value="BE - Automobile Engineering">BE - Automobile Engineering</option>
+                    <option value="BE - Marine Engineering">BE - Marine Engineering</option>
+                    <option value="BE - Chemical Engineering">BE - Chemical Engineering</option>
+                    <option value="BE - Robotics and Automation">BE - Robotics and Automation</option>
+                    <option value="BE - Software Engineering">BE - Software Engineering</option>
+                    <option value="MBBS">MBBS</option>
+                    <option value="BDS">BDS</option>
+                    <option value="BSc Nursing">BSc Nursing</option>
+                    <option value="BPT (Physiotherapy)">BPT (Physiotherapy)</option>
+                    <option value="BPharm">BPharm</option>
+                    <option value="BHMS">BHMS</option>
+                    <option value="BAMS">BAMS</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BBA">BBA</option>
+                    <option value="BCom">BCom</option>
+                    <option value="BA">BA</option>
+                    <option value="BSc">BSc</option>
+                    <option value="B.Arch">B.Arch</option>
+                    <option value="BFA">BFA</option>
+                    <option value="LLB">LLB</option>
+                    <option value="BSW">BSW</option>
+                    <option value="BHM">BHM</option>
+                    <option value="BEd">BEd</option>
+                    <option value="B.Design">B.Design</option>
+                    <option value="B.Tech">B.Tech</option>
+                </select>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                   1. How many hours do you sleep per day?
+                </label>
+                <select class="form-select" name="sleep_hours" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="less than 4">less than 4</option>
+                    <option value="4-6">4-6</option>
+                    <option value="6-8">6-8</option>
+                    <option value="More than 8">More than 8</option>
+                </select>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    2. How many hours do you spend on social media platforms daily?
+                </label>
+                <select class="form-select" name="social_media_hours" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="less than 2 hours">2</option>
+                    <option value="2-4">4</option>
+                    <option value="More than 4 hours">More than 4 hours</option>
+                    <option value="Rarely">rarely</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    3. Which social media platform you are much distracted with?
+                </label>
+                <select class="form-select" name="social_media" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Whatsapp">Whatsapp</option>
+                    <option value="Youtube">Youtube</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="Facebook">Facebook</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    4. How often do you eat meals on time?
+                </label>
+                <select class="form-select" name="eat_on_time" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Always">Always - I eat all my meals on time.</option>
+                    <option value="Often">Often - I eat on time most of the days.</option>
+                    <option value="Sometimes">Sometimes - I eat on time only occasionally.</option>
+                    <option value="Rarely">Rarely - I usually miss or delay my meals.</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    5. How often do you exercise or stay physically active?
+                </label>
+                <select class="form-select" name="physical_activity" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Rarely">Rarely</option>
+                    <option value="Occasinally">Occasinally</option>
+                    <option value="Daily">Daily</option>
+                    <option value="Frequently">Frequently</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    6. How productive do you feel on an average day?
+                </label>
+                <select class="form-select" name="how_productive" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Highly productive">Highly productive - I finish most of the tasks I plan for the day.</option>
+                    <option value="Modertely productive">Moderately productive - I complete some tasks, but not everything planned.</option>
+                    <option value="Slightly productive">Slightly productive - I get only a few tasks done in a day.</option>
+                    <option value="Not productive">Not productive - I hardly finish any tasks during the day.</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    7. How often do you feel stressed?
+                </label>
+                <select class="form-select" name="experiencing_stress" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Sometimes">Sometimes</option>
+                    <option value="I'm happy always">Rarely</option>
+                    <option value="Almost always">Almost always</option>
+                    <option value="I won't get stressed">I won't get stressed</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    8. How often do you feel lonely?
+                </label>
+                <select class="form-select" name="loneliness" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Sometimes">Sometimes</option>
+                    <option value="Rarely">Rarely</option>
+                    <option value="Almost always">Almost always</option>
+                    <option value="I won't get stressed">I never felt alone</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    9. How often do you overthink situations?
+
+                </label>
+                <select class="form-select" name="overthinking" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Very confident">I rarely worry after making decisions.</option>
+                    <option value="I sometimes replay events in my head.">I sometimes replay events in my head.</option>
+                    <option value="My mind keeps replaying and analyzing situations constantly.">My mind keeps replaying and analyzing situations constantly.</option>
+                    <option value="I frequently get stuck thinking about “what if” scenarios.">I frequently get stuck thinking about “what if” scenarios.</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    10. Have you ever felt proud of yourself?
+                </label>
+                <select class="form-select" name="self_proudness" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Most of the time">Most of the time</option>
+                    <option value="Not too much">Not too much</option>
+                    <option value="Sometimes">Sometimes</option>
+                    <option value="Rarely">Rarely</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    11. How often do you learn something new? (skills, books, courses)
+                </label>
+                <select class="form-select" name="learn_new" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Once in a few months">Once in a few months</option>
+                    <option value="Once or twice a month">Once or twice a month</option>
+                    <option value="Daily">Daily</option>
+                    <option value="Not confident">I don't update my knowledge.</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    12. How clearly do you know what you want in life?
+                </label>
+                <select class="form-select" name="want_in_life" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="I am fully confident and focused on what I want in life">I am fully confident and focused on what I want in life.</option>
+                    <option value="I am confident about my major goals.">I am confident about my major goals.</option>
+                    <option value="I have a few goals but I'm not fully sure.">I have a few goals but I'm not fully sure.</option>
+                    <option value="I feel completely confused about my life goals.">I feel completely confused about my life goals</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    13. How often do you feel you are wasting your potential?
+                </label>
+                <select class="form-select" name="felt_no_potential" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="I always feel like I am wasting my potential.">I always feel like I am wasting my potential.</option>
+                    <option value="I use my abilities but not consistently">I use my abilities but not consistently.</option>
+                    <option value="I never feel like I am wasting my potential.">I never feel like I am wasting my potential.</option>
+                    <option value="I don't use my abilities as much as I should">I don't use my abilities as much as I should</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    14. What is your employment status in now?
+                </label>
+                <select class="form-select" name="employement_status" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Employed but did not like the job">Employed but did not like the job</option>
+                    <option value="Employed and work with job satisfaction">Employed and work with job satisfaction</option>
+                    <option value="Entrepreneur">Entrepreneur</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    15. How often do you feel pressure regarding your career?
+                </label>
+                <select class="form-select" name="career_pressure" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="I don't feel any pressure about my career">I don't feel any pressure about my career</option>
+                    <option value="I feel career pressure occasionally.">I feel career pressure occasionally.</option>
+                    <option value="I feel overwhelming pressure every day about my future career">I feel overwhelming pressure every day about my future career.</option>
+                    <option value="I feel pressure most of the time due to expectations or uncertainty.">I feel pressure most of the time due to expectations or uncertainty.</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    16. How financially stable do you feel currently?
+                </label>
+                <select class="form-select" name="financial_stability" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="Not stable at all">Not stable at all</option>
+                    <option value="Slightly stable">Slightly stable</option>
+                    <option value="Mostly stable">Mostly stable</option>
+                    <option value="Fully stable">Fully stable</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    17. How disciplined are you with spending/saving money?
+                </label>
+                <select class="form-select" name="money_management" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="I spend without planning and rarely save.">I spend without planning and rarely save.</option>
+                    <option value="I sometimes plan my spending and save a little.">I sometimes plan my spending and save a little.</option>
+                    <option value="I usually stick to my budget and save regularly">I usually stick to my budget and save regularly</option>
+                    <option value="I strictly manage my money and save consistently.">I strictly manage my money and save consistently.</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    18. How often do financial issues affect your mental health?
+                </label>
+                <select class="form-select" name="mental_health_financially" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="No impact">No impact</option>
+                    <option value="Mild impact">Mild impact</option>
+                    <option value="Moderate impact">Moderate impact</option>
+                    <option value="Severe impact">Severe impact</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    19. How often do you feel you are living for others expectations?
+                </label>
+                <select class="form-select" name="self_dependencies" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="I live completely based on my own choices.">I live completely based on my own choices.</option>
+                    <option value="I balance my choices with others expectations.">I balance my choices with others expectations.</option>
+                    <option value="I mostly follow what others expect from me.">I mostly follow what others expect from me.</option>
+                    <option value="I live almost entirely to satisfy others expectations.">I live almost entirely to satisfy others  expectations.</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    20. How often do you reflect on your past decisions?
+                </label>
+                <select class="form-select" name="reflect_for_past" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="I rarely think about my past decisions and let that go away">I rarely think about my past decisions.</option>
+                    <option value="I reflect on my past decisions only occasionally.">I reflect on my past decisions only occasionally.</option>
+                    <option value="I regularly reflect on my past decisions to learn from them.">I regularly reflect on my past decisions to learn from them.</option>
+                    <option value="I constantly think about my past decisions and analyze them deeply">I constantly think about my past decisions and analyze them deeply</option>
+                </select>
+            </div>
+            
+
+            <!-- Submit button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
